@@ -54,7 +54,7 @@ namespace Stone131022.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Posicao,Idade,MedalhaId")] Jogador jogador)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Posicao,Idade")] Jogador jogador)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Stone131022.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Posicao,Idade,MedalhaId")] Jogador jogador)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Posicao,Idade")] Jogador jogador)
         {
             if (id != jogador.Id)
             {

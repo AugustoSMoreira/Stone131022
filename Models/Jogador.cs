@@ -6,6 +6,5 @@
         public string Nome { get; set; }
         public string Posicao { get; set; }
         public int Idade { get; set; }
-        public int? MedalhaId { get; set; }
     }
 }
