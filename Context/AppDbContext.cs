@@ -10,6 +10,7 @@ namespace Stone131022.Context
         {
 
         }
+
         public DbSet<Jogador> GetJogadores { get; set; }
         public DbSet<Medalha> GetMedalhas { get; set; }
 

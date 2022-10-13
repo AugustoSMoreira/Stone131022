@@ -10,6 +10,7 @@ using Stone131022.Models;
 
 namespace Stone131022.Controllers
 {
+    [Route("jogadores")]
     public class JogadoresController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,12 +21,14 @@ namespace Stone131022.Controllers
         }
 
         // GET: Jogadores
+        [Route("")]
         public async Task<IActionResult> Index()
         {
               return View(await _context.GetJogadores.ToListAsync());
         }
 
         // GET: Jogadores/Details/5
+        [Route("/detalhes/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.GetJogadores == null)
@@ -44,6 +47,7 @@ namespace Stone131022.Controllers
         }
 
         // GET: Jogadores/Create
+        [Route("/create")]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +56,7 @@ namespace Stone131022.Controllers
         // POST: Jogadores/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("/create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Posicao,Idade")] Jogador jogador)
@@ -66,6 +71,7 @@ namespace Stone131022.Controllers
         }
 
         // GET: Jogadores/Edit/5
+        [Route("/edit/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.GetJogadores == null)
@@ -84,6 +90,7 @@ namespace Stone131022.Controllers
         // POST: Jogadores/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("/edit/{id}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Posicao,Idade")] Jogador jogador)
@@ -117,6 +124,7 @@ namespace Stone131022.Controllers
         }
 
         // GET: Jogadores/Delete/5
+        [Route("/delete/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.GetJogadores == null)
@@ -135,6 +143,7 @@ namespace Stone131022.Controllers
         }
 
         // POST: Jogadores/Delete/5
+        [Route("/delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
